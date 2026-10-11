@@ -33,7 +33,7 @@ The scripts load shared functions from `Graph.Common.ps1`. This helper reads and
 | `03-BlockAgent.ps1` | Blocks a package. Supports `-WhatIf` and confirmation. |
 | `04-UnblockAgent.ps1` | Unblocks a package. Supports `-WhatIf` and confirmation. |
 | `05-ReassignAgent.ps1` | Reassigns a package to a Graph user ID. Supports `-WhatIf` and confirmation. |
-| `09-GetOneAgent.ps1` | Retrieves one package by ID and displays its full JSON plus selected summary properties. |
+| `06-GetOneAgent.ps1` | Retrieves one package by ID and displays its full JSON plus selected summary properties. |
 | `Graph.Common.ps1` | Shared tenant-ID and Graph-session helper functions; normally dot-sourced by the other scripts. |
 
 ## Example runners
@@ -44,7 +44,7 @@ The numbered `*-run.ps1` files show example invocations:
 - `03-run.ps1` blocks a configured package.
 - `04-run.ps1` unblocks a configured package.
 - `05-run.ps1` looks up a configured user's ID from their UPN, then reassigns a configured package to that user.
-- `09-run.ps1` retrieves the configured package's details.
+- `06-run.ps1` retrieves the configured package's details.
 
 These are examples, not generic command-line interfaces: edit their package IDs, group ID, and user UPN before use. In particular, `02-run.ps1` through `05-run.ps1` pass `-Confirm:$false`, so they do not prompt before making changes. Review the values and target carefully before running them.
 
@@ -55,7 +55,7 @@ These are examples, not generic command-line interfaces: edit their package IDs,
 .\01-GetAgents.ps1 -OutputDirectory .\output
 
 # Inspect one package
-.\09-GetOneAgent.ps1 -PackageId 'PACKAGE_ID'
+.\06-GetOneAgent.ps1 -PackageId 'PACKAGE_ID'
 
 # Preview a package update without applying it
 .\02-UpdateAgent.ps1 -PackageId 'PACKAGE_ID' -AvailableTo 'allowedForAll' -WhatIf
